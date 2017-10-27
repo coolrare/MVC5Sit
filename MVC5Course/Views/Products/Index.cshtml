@@ -9,6 +9,10 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<form action="/Products/Search" method="get">
+    Search: <input type="search" name="keyword" />
+    <input type="submit" value="搜尋" />
+</form>
 <table class="table">
     <tr>
         <th>
@@ -38,8 +42,18 @@
             @Html.DisplayFor(modelItem => item.Active)
         </td>
         <td>
+            @if (item.Stock > 1000)
+            {
+                @:<strong>
+            }
+
             @*@String.Format("{0:N0}", item.Stock)*@
             @Html.DisplayFor(modelItem => item.Stock)
+
+             @if (item.Stock > 1000)
+             {
+                @:</strong>
+             }
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
