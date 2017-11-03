@@ -163,14 +163,17 @@ namespace MVC5Course.Controllers
 
             // LINQ ( C# 3.0 )
             //var data = "SELECT * FROM table WHERE ...";
-            var data = from p in result
-                       select new ProductCreationVM()
-                       {
-                           ProductId = p.ProductId,
-                           ProductName = p.ProductName,
-                           Price = p.Price,
-                           OrderLineCount = p.OrderLine.Count()
-                       };
+            //var data = from p in result
+            //           select new ProductCreationVM()
+            //           {
+            //               ProductId = p.ProductId,
+            //               ProductName = p.ProductName,
+            //               Price = p.Price,
+            //               OrderLineCount = p.OrderLine.Count()
+            //           };
+
+            var data = db.Database.SqlQuery<ProductCreationVM>(
+                "SELECT TOP 10 *, OrderLineCount=(SELECT COUNT(*) FROM dbo.OrderLine o WHERE o.ProductId=p.ProductId) FROM dbo.Product p");
 
             return View(data);
         }
@@ -179,11 +182,13 @@ namespace MVC5Course.Controllers
         {
             var db = new FabricsEntities();
 
-            foreach (var item in db.Product)
-            {
-                item.Price += 1;
-            }
-            db.SaveChanges();
+            //foreach (var item in db.Product)
+            //{
+            //    item.Price += 1;
+            //}
+            //db.SaveChanges();
+
+            db.Database.ExecuteSqlCommand("UPDATE dbo.Product SET Price=Price+1");
 
             return RedirectToAction("Top10");
         }
