@@ -154,5 +154,23 @@ namespace MVC5Course.Controllers
 
             return View(data);
         }
+
+        public ActionResult Top10()
+        {
+            var db = new FabricsEntities();
+
+            var result = db.Product.Take(10);
+
+            // LINQ ( C# 3.0 )
+            //var data = "SELECT * FROM table WHERE ...";
+            var data = from p in result
+                       select new ProductCreationVM()
+                       {
+                           ProductName = p.ProductName,
+                           Price = p.Price
+                       };
+
+            return View(data);
+        }
     }
 }
