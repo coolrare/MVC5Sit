@@ -167,7 +167,8 @@ namespace MVC5Course.Controllers
                        select new ProductCreationVM()
                        {
                            ProductName = p.ProductName,
-                           Price = p.Price
+                           Price = p.Price,
+                           OrderLineCount = p.OrderLine.Count()
                        };
 
             return View(data);

@@ -14,5 +14,7 @@ namespace MVC5Course.Models
 
         [Required]
         public Nullable<decimal> Price { get; set; }
+
+        public int OrderLineCount { get; set; }
     }
 }
