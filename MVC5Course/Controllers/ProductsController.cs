@@ -166,6 +166,7 @@ namespace MVC5Course.Controllers
             var data = from p in result
                        select new ProductCreationVM()
                        {
+                           ProductId = p.ProductId,
                            ProductName = p.ProductName,
                            Price = p.Price,
                            OrderLineCount = p.OrderLine.Count()

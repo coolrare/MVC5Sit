@@ -36,9 +36,7 @@
             @Html.DisplayFor(modelItem => item.OrderLineCount)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("提高價格", "PriceUp", new { id=item.ProductId })
         </td>
     </tr>
 }
