@@ -23,7 +23,7 @@ namespace MVC5Course.Models
     
         public int ProductId { get; set; }
         [Required(ErrorMessage = "請填寫商品名稱")]
-        [StringLength(10, ErrorMessage = "商品名稱長度不得超過 10 個字元")]
+        //[StringLength(10, ErrorMessage = "商品名稱長度不得超過 10 個字元")]
         public string ProductName { get; set; }
         [Required]
         public Nullable<decimal> Price { get; set; }

@@ -172,5 +172,18 @@ namespace MVC5Course.Controllers
 
             return View(data);
         }
+
+        public ActionResult PriceUp()
+        {
+            var db = new FabricsEntities();
+
+            foreach (var item in db.Product)
+            {
+                item.Price += 1;
+            }
+            db.SaveChanges();
+
+            return RedirectToAction("Top10");
+        }
     }
 }
