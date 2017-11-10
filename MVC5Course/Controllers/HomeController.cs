@@ -29,7 +29,12 @@ namespace MVC5Course.Controllers
 
         public ActionResult Test(string id)
         {
-            return Content(id);
+            return View((object)id);
+        }
+
+        public ActionResult Test2(string id)
+        {
+            return PartialView("Test", (object)id);
         }
     }
 }

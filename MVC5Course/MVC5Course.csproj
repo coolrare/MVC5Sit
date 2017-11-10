@@ -348,6 +348,7 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\CreateNew.cshtml" />
     <Content Include="Views\Products\Top10.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
