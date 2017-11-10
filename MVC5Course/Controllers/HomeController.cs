@@ -36,5 +36,17 @@ namespace MVC5Course.Controllers
         {
             return PartialView("Test", (object)id);
         }
+
+        public ActionResult ContentDemo()
+        {
+            // SaveChange();
+
+            return Content("<script>alert('新增成功');location.href='/';</script>");
+        }
+
+        public ActionResult Succeed()
+        {
+            return View("JSAlertRedirect", (object)"新增成功");
+        }
     }
 }
