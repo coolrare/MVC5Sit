@@ -48,5 +48,23 @@ namespace MVC5Course.Controllers
         {
             return View("JSAlertRedirect", (object)"新增成功");
         }
+
+        public ActionResult File1()
+        {
+            return File(
+                @"G:\甘特圖.xlsx",
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "客戶資料輸出.xlsx");
+        }
+        public ActionResult File2(int dl = 0)
+        {
+            if (dl == 1)
+            {
+                return File(Server.MapPath("~/Content/1377946249-1584189015.jpg"), "image/jpeg", "兄弟加油.jpg");
+            }
+            else
+            {
+                return File(Server.MapPath("~/Content/1377946249-1584189015.jpg"), "image/jpeg");
+            }
+        }
     }
 }
