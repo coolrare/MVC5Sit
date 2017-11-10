@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MVC5Course.Models
 {
-    public class ProductCreationVM
+    public class ProductCreationVM : IValidatableObject
     {
         public int ProductId { get; set; }
 
@@ -18,5 +18,15 @@ namespace MVC5Course.Models
         public Nullable<decimal> Price { get; set; }
 
         public int OrderLineCount { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (!this.ProductName.Contains("台灣"))
+            {
+                yield return new ValidationResult(
+                    "台灣只能有一個",
+                    new string[] { "ProductName" });
+            }
+        }
     }
 }
