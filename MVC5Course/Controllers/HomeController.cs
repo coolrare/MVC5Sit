@@ -22,6 +22,8 @@ namespace MVC5Course.Controllers
 
         public ActionResult Contact()
         {
+            ViewData["Message"] = "Your contact page.";
+
             ViewBag.Message = "Your contact page.";
 
             return View();
