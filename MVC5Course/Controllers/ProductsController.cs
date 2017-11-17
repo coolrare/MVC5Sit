@@ -7,16 +7,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVC5Course.Models;
+using System.Data.Entity.Validation;
 
 namespace MVC5Course.Controllers
 {
-    public class MemberController : BaseController
+    public class ProductsController : BaseController
     {
-        public ActionResult Login()
-        {
-
-            return View();
-        }
         // GET: Products
         public ActionResult Index()
         {
@@ -155,9 +151,11 @@ namespace MVC5Course.Controllers
         }
 
         [HttpPost]
+        [HandleError(ExceptionType = typeof(DbEntityValidationException),
+            View = "Error.DbEntityValidationException")]
         public ActionResult CreateNew(ProductCreationVM data)
         {
-            if (ModelState.IsValid)
+            if (true || ModelState.IsValid)
             {
                 db.Product.Add(new Product()
                 {
@@ -165,7 +163,7 @@ namespace MVC5Course.Controllers
                     ProductName = data.ProductName,
                     Price = data.Price,
                     Active = true,
-                    Stock = 1
+                    Stock = 0
                 });
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -1,0 +1,33 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<h1 class="text-danger">您輸入的資料錯誤，請修正後再送出一次！</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+@using System.Data.Entity.Validation
+@{
+    var ex = Model.Exception as DbEntityValidationException;
+
+    //throw ex;
+    var allErrors = new List<string>();
+
+    foreach (DbEntityValidationResult re in ex.EntityValidationErrors)
+    {
+        foreach (DbValidationError err in re.ValidationErrors)
+        {
+            allErrors.Add(err.ErrorMessage);
+        }
+    }
+
+    //ViewBag.Errors = allErrors;
+}
+
+<ul>
+    @foreach (var item in allErrors)
+    {
+        <li>@item</li>
+    }
+</ul>
