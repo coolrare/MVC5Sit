@@ -10,8 +10,13 @@ using MVC5Course.Models;
 
 namespace MVC5Course.Controllers
 {
-    public class ProductsController : BaseController
+    public class MemberController : BaseController
     {
+        public ActionResult Login()
+        {
+
+            return View();
+        }
         // GET: Products
         public ActionResult Index()
         {
