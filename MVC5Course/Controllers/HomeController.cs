@@ -69,5 +69,10 @@ namespace MVC5Course.Controllers
                 return File(Server.MapPath("~/Content/1377946249-1584189015.jpg"), "image/jpeg");
             }
         }
+
+        public ActionResult ViewTest()
+        {
+            return PartialView();
+        }
     }
 }
