@@ -72,7 +72,7 @@ namespace MVC5Course.Controllers
 
         public ActionResult ViewTest()
         {
-            return PartialView();
+            return View();
         }
     }
 }
