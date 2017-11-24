@@ -55,6 +55,12 @@ namespace MVC5Course.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
+            var items = new List<SelectListItem>();
+            items.Add(new SelectListItem() { Text = "100", Value = "100" });
+            items.Add(new SelectListItem() { Text = "150", Value = "150" });
+            //ViewData["Price"] = items;
+            ViewData["Price"] = new SelectList(items, "Value", "Text");
+
             return View();
         }
 
@@ -65,6 +71,12 @@ namespace MVC5Course.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ProductId,ProductName,Price,Active,Stock")] Product product)
         {
+            var items = new List<SelectListItem>();
+            items.Add(new SelectListItem() { Text = "100", Value = "100" });
+            items.Add(new SelectListItem() { Text = "150", Value = "150" });
+            //ViewData["Price"] = items;
+            ViewData["Price"] = new SelectList(items, "Value", "Text");
+
             if (ModelState.IsValid)
             {
                 db.Product.Add(product);
@@ -90,6 +102,10 @@ namespace MVC5Course.Controllers
             {
                 return HttpNotFound();
             }
+
+            var items = (from p in db.Product select p.Price).Distinct().OrderBy(p => p.Value);
+            ViewData["Price"] = new SelectList(items, Convert.ToInt32(product.Price));
+
             return View(product);
         }
 

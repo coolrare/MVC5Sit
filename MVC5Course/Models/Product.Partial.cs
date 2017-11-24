@@ -25,7 +25,8 @@ namespace MVC5Course.Models
 
         [Required]
         [StringLength(80, ErrorMessage = "欄位長度不得大於 80 個字元")]
-        [ValidateTaiwanAddress]
+        //[ValidateTaiwanAddress]
+        //[DataType(DataType.EmailAddress)]
         public string ProductName { get; set; }
         [Required]
         public Nullable<decimal> Price { get; set; }
