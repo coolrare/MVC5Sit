@@ -45,7 +45,9 @@
     </dl>
 </div>
 
-@Html.Partial("ShowOrderLines", Model.OrderLine)
+@*@Html.Partial("ShowOrderLines", Model.OrderLine)*@
+
+@Html.Action("OrderLines", new { id = Model.ProductId })
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |

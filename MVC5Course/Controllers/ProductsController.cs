@@ -212,5 +212,11 @@ namespace MVC5Course.Controllers
 
             return RedirectToAction("Top10");
         }
+
+        public ActionResult OrderLines(int id)
+        {
+            ViewData.Model = db.OrderLine.Where(p => p.ProductId == id);
+            return PartialView();
+        }
     }
 }

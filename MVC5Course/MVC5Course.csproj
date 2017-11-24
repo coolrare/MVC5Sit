@@ -529,6 +529,7 @@
     <Content Include="Views\Home\MetroIndex.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Products\ShowOrderLines.cshtml" />
+    <Content Include="Views\Products\OrderLines.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
