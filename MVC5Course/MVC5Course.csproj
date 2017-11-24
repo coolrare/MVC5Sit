@@ -539,6 +539,8 @@
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Gender.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Stars.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateOfBirth.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateOfBirth.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

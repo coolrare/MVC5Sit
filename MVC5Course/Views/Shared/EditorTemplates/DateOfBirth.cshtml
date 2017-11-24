@@ -1,0 +1,16 @@
+﻿@model Nullable<System.DateTime>
+
+@if (Model.HasValue)
+{
+    @Html.TextBox("", Model.Value.ToString("yyyy-MM-dd"), new { @class = "form-control text-box single-line" })
+}
+else
+{
+    @Html.TextBox("", "", new { @class = "form-control text-box single-line" })
+}
+
+<script>
+    $(function () {
+        $("#@(Html.Id(""))").datepicker();
+    });
+</script>
